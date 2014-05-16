@@ -1,0 +1,108 @@
+var json_str_4={
+  "nodes": [
+    {
+      "color": "#aaaaaa", 
+      "name": "good", 
+      "size": "12"
+    }, 
+    {
+      "color": "#aaaaaa", 
+      "name": "light", 
+      "size": "54"
+    }, 
+    {
+      "color": "#aaaaaa", 
+      "name": "bad", 
+      "size": "3"
+    }, 
+    {
+      "color": "#aaaaaa", 
+      "name": "evil", 
+      "size": "0"
+    }, 
+    {
+      "color": "#aaaaaa", 
+      "name": "dark", 
+      "size": "18"
+    }, 
+    {
+      "color": "#aaaaaa", 
+      "name": "hot", 
+      "size": "0"
+    }, 
+    {
+      "color": "#aaaaaa", 
+      "name": "cold", 
+      "size": "9"
+    }, 
+    {
+      "y": 0, 
+      "x": 0, 
+      "id": "the-end", 
+      "color": "#000000", 
+      "size": "1"
+    }
+  ], 
+  "edges": [
+    {
+      "source": 0, 
+      "size": "0.75", 
+      "name": "good-dark", 
+      "target": 4
+    }, 
+    {
+      "source": 0, 
+      "size": "0.5", 
+      "name": "good-cold", 
+      "target": 6
+    }, 
+    {
+      "source": 0, 
+      "size": "1.0", 
+      "name": "good-bad", 
+      "target": 2
+    }, 
+    {
+      "source": 1, 
+      "size": "4.75", 
+      "name": "light-dark", 
+      "target": 4
+    }, 
+    {
+      "source": 1, 
+      "size": "3.33333333333", 
+      "name": "light-cold", 
+      "target": 6
+    }, 
+    {
+      "source": 1, 
+      "size": "2.5", 
+      "name": "light-good", 
+      "target": 0
+    }, 
+    {
+      "source": 1, 
+      "size": "1.58333333333", 
+      "name": "light-bad", 
+      "target": 2
+    }, 
+    {
+      "source": 4, 
+      "size": "3.0", 
+      "name": "dark-cold", 
+      "target": 6
+    }, 
+    {
+      "source": 4, 
+      "size": "2.0", 
+      "name": "dark-bad", 
+      "target": 2
+    }, 
+    {
+      "source": 6, 
+      "size": "2.5", 
+      "name": "cold-bad", 
+      "target": 2
+    }
+  ]
+}

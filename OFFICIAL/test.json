@@ -1,0 +1,132 @@
+var json_test = {
+  "nodes": [
+    {
+      "color": "#0000ff", 
+      "name": "good", 
+      "size": "72"
+    }, 
+    {
+      "color": "#0000ff", 
+      "name": "light", 
+      "size": "33"
+    }, 
+    {
+      "color": "#0000ff", 
+      "name": "bad", 
+      "size": "12"
+    }, 
+    {
+      "color": "#0000ff", 
+      "name": "evil", 
+      "size": "0"
+    }, 
+    {
+      "color": "#0000ff", 
+      "name": "dark", 
+      "size": "78"
+    }, 
+    {
+      "color": "#0000ff", 
+      "name": "hot", 
+      "size": "15"
+    }, 
+    {
+      "color": "#0000ff", 
+      "name": "cold", 
+      "size": "36"
+    }, 
+  ], 
+  "edges": [
+    {
+      "color": "#ff0000", 
+      "source": 0, 
+      "size": "7.58333333333", 
+      "name": "good-dark", 
+      "target": 4
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 0, 
+      "size": "2.0", 
+      "name": "good-bad", 
+      "target": 2
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 0, 
+      "size": "4.64285714286", 
+      "name": "good-cold", 
+      "target": 6
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 1, 
+      "size": "5.83333333333", 
+      "name": "light-dark", 
+      "target": 4
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 1, 
+      "size": "2.5", 
+      "name": "light-cold", 
+      "target": 6
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 1, 
+      "size": "2.33333333333", 
+      "name": "light-good", 
+      "target": 0
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 1, 
+      "size": "1.0", 
+      "name": "light-bad", 
+      "target": 2
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 4, 
+      "size": "6.94444444444", 
+      "name": "dark-cold", 
+      "target": 6
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 4, 
+      "size": "1.0", 
+      "name": "dark-bad", 
+      "target": 2
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 5, 
+      "size": "0.5", 
+      "name": "hot-dark", 
+      "target": 4
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 5, 
+      "size": "5.16666666667", 
+      "name": "hot-cold", 
+      "target": 6
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 5, 
+      "size": "0.97619047619", 
+      "name": "hot-good", 
+      "target": 0
+    }, 
+    {
+      "color": "#ff0000", 
+      "source": 6, 
+      "size": "1.0", 
+      "name": "cold-bad", 
+      "target": 2
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CS398 Project Viz</title>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js" charset="utf-8"></script>
+
+<!-- json files -->
+<script src="test.json" charset="utf-8"></script>
+
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var str_min = function(a,b)
+    {
+        if (a < b)
+            return a
+        return b
+    }
+    
+    var str_max = function(a,b)
+    {
+        if (a <= b)
+            return b
+        return a
+    }
+
+    var w = 1000;
+    var h = 600;
+    var linkDistance=200;
+
+    var colors = d3.scale.category10();
+
+    var dataset = json_test;
+ 
+    var svg = d3.select("body").append("svg").attr({"width":w,"height":h});
+
+    var force = d3.layout.force()
+        .nodes(dataset.nodes)
+        .links(dataset.edges)
+        .size([w,h])
+        .linkDistance([linkDistance])
+        .charge([-500])
+        .theta(0.1)
+        .gravity(0.05)
+        .start();
+
+    var read_file = function(id)
+    {
+        var iframe = document.getElementById("output");
+        iframe.src = "inserts/" + id.toLowerCase() + "-2.html";
+        
+        var info = $("#output-info");
+        parent.text = 'TEST'
+    }
+
+    var edges = svg.selectAll(".line")
+      .data(dataset.edges)
+      .enter()
+      .append("line")
+      .attr("id",function(d,i) {return str_min(d.source.name,d.target.name) + "-" + str_max(d.source.name,d.target.name)})
+      .attr('stroke-width', function(d,i) {return d.size*2})
+      .style("stroke","#ccc")
+      .style("cursor", "pointer")
+      .on("click", function(){ read_file(this.id); });
+    
+    var nodes = svg.selectAll("circle")
+      .data(dataset.nodes)
+      .enter()
+      .append("circle")
+      .attr({"r": function(d,i){return d.size/2}})
+      .style("fill",function(d,i){return d.color})
+      .style("cursor", "pointer")
+      .call(force.drag)
+      .on("click", function(d,i){ read_file(d.name); });
+
+    var nodelabels = svg.selectAll(".nodelabel") 
+       .data(dataset.nodes)
+       .enter()
+       .append("text")
+       .attr({"x":function(d){return d.x - d.size/2;},
+              "y":function(d){return d.y;},
+              "class":"nodelabel",
+              "stroke":"black"})
+       .text(function(d){return d.name;});
+
+    var edgepaths = svg.selectAll(".line")
+        .data(dataset.edges)
+        .enter()
+        .append('line')
+        .attr({'d': function(d) {return 'M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y},
+               'fill-opacity':1,
+               'stroke-opacity':1,
+               'fill':'blue',
+               'stroke':'red',
+               'stroke-width':function(d,i){return d.size},
+               'id':function(d,i) {return 'line'+i}}); 
+
+    force.on("tick", function(){
+
+        edges.attr({"x1": function(d){return d.source.x;},
+                    "y1": function(d){return d.source.y;},
+                    "x2": function(d){return d.target.x;},
+                    "y2": function(d){return d.target.y;}
+        });
+
+        nodes.attr({"cx":function(d){return d.x;},
+                    "cy":function(d){return d.y;}
+        });
+
+        nodelabels.attr("x", function(d) { return d.x; }) 
+                  .attr("y", function(d) { return d.y; });
+
+        edgepaths.attr('d', function(d) { var path='M '+d.source.x+' '+d.source.y+' L '+ d.target.x +' '+d.target.y;
+                                           //console.log(d)
+                                           return path});       
+
+    });
+
+</script>
+
+<div>
+    <!-- Content -->
+    <iframe id="output" src="inserts/default.html" style="width:100%; min-height:500px; border:none">
+    </iframe>
+</div>
+</body>
+</html>

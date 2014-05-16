@@ -1,0 +1,7 @@
+CS398 Final Project by Aessa Nassri.
+
+This project uses NLTK, D3.js (http://d3js.org) and NetworkX (http://networkx.github.io), neither of which I (Aessa Nassri) created.
+
+The NetworkX code is based on an example that I found awhile ago (MP1ish) on the NetworkX website and heavily modified/hacked together to fit my needs.
+
+The D3 Javascript contained in main[1-5].html is based off of an example graph written by Joerg Baach; his code can be found here: https://gist.github.com/jhb/5955887
